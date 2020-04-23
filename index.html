@@ -52,9 +52,12 @@
 		<h1 class="text-center pt-5 font-weight-bold">
 			캐릭터상 테스트
 		</h1>
-		<h3 class="text-center pt-3 pb-5 font-weight-boler">
+		<h4 class="text-center pt-3  font-weight-bold">
 			내가 애니메이션에 나온다면 어떤 애니메이션일까?
-		</h3>
+		</h4>
+		<h6 class="text-center pt-2 pb-4 font-weight-light ml-5 mr-5">
+			*한국콘텐츠진흥원에서 조사한 '국내 캐릭터 인지도 순위'를 참고하여 캐릭터를 선정하였습니다.
+		</h6>
 	</div>
 
 	<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -63,14 +66,17 @@
 		<div class="image-upload-wrap">
 			<input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
 			<div class="drag-text">
-				<img src="img/image_icon.png" class="mt-5">
-				<h3>사진파일을 드래그 하거나 사진을 업로드 해주세요!</h3>
+				<img src="img/image_icon.png" class="m-5">
+				<h5 class="font-weight-lighter nanum pb-5">사진파일을 드래그 하거나 사진을 업로드 해주세요!</h5>
 			</div>
 		</div>
 		<div class="file-upload-content">
 			<img class="file-upload-image" id="faceimg" src="#" alt="your image" />
-			<p class="result-messege"></p>
-			<div id="label-container"></div>
+			<div>
+				<p class="result-messege nanum font-weight-bold text-center text-size-32px"></p>
+				<p id = "result-messege-sub" class="font-weight-bolder nanum"></p>	
+			</div>
+			<div id="label-container" style="display:none"></div>
 			<div class="container">
 				<canvas class="mychart" id="myChart"></canvas>
 			</div>
@@ -152,7 +158,7 @@
 		// More API functions here:
 		// https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 		// the link to your model provided by Teachable Machine export panel
-		const URL = "https://teachablemachine.withgoogle.com/models/ATZhW52Gw/";
+		const URL = "https://teachablemachine.withgoogle.com/models/WgsWNXCUw/";
 		let model, webcam, labelContainer, maxPredictions;
 		// Load the image model and setup the webcam
 		async function init() {
@@ -191,26 +197,42 @@
 			switch (prediction[0].className) {
 				case "도라에몽":
 					resultMesseage = "도라에몽"
+					resultMesseageSub = "당신은 둥글둥글한 그림체가 매력적인 도라에몽에 어울리는 얼굴상을 가지셨군요!"
+					resultE = "당신이 캐릭터였다면 도라에몽에 등장했겠군요!"
 					break
 				case "짱구는 못말려":
 					resultMesseage = "짱구는 못말려"
+					resultMesseageSub = "멘트못정함"
+					resultE = "당신이 캐릭터였다면 짱구는 못말려에 등장했겠군요!"
 					break;
 				case "카카오프렌즈":
 					resultMesseage = "카카오프렌즈"
+					resultMesseageSub = "멘트못정함"
+					resultE = "당신이 캐릭터였다면 카카오프렌즈에 등장했겠군요!"
 					break;
 				case "뽀로로와 친구들":
 					resultMesseage = "뽀로로와 친구들"
+					resultMesseageSub = "멘트못정함"
+					resultE = "당신이 캐릭터였다면 뽀로로와 친구들에 등장했겠군요!"
 					break;
 				case "라바":
 					resultMesseage = "라바"
+					resultMesseageSub = "당신은 다양한 표정이 매력적인 라바에 어울리는 얼굴상을 가지셨군요!"
+					resultE = "당신이 캐릭터였다면 라바에 등장했겠군요!"
 					break;
 				case "아기 공룡 둘리":
 					resultMesseage = "아기 공룡 둘리"
+					resultMesseageSub = "멘트못정함"
+					resultE = "당신이 캐릭터였다면 아기 공룡 둘리에 등장했겠군요!"
 					break;
 				default:
 					resultMesseage = "알수없음"
+					resultMesseageSub = "알수없음"
+					resultE = "알수없음"
 			}
 			$('.result-messege').html(resultMesseage);
+			$("#result-messege-sub").html(resultMesseageSub);
+			
 			for (let i = 0; i < maxPredictions; i++) {
 				const classPrediction =
 					prediction[i].className + ": " + prediction[i].probability.toFixed(2);
@@ -223,7 +245,7 @@
 					data: {
 						labels: [firstN, secondN, thirdN, fourthN, fifthN, sixthN],
 						datasets: [{
-							label: '# of percentage',
+							label: 'x100 %',
 							data: [first, second, third, fourth, fifth, sixth],
 							backgroundColor: ['rgba(255, 99, 132, 0.2)',
 								'rgba(54, 162, 235, 0.2)',
