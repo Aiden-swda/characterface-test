@@ -67,7 +67,10 @@
 			<input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
 			<div class="drag-text">
 				<img src="img/image_icon.png" class="m-5">
-				<h5 class="font-weight-lighter nanum pb-5">사진파일을 드래그 하거나 사진을 업로드 해주세요!</h5>
+				<div class="pb-5">
+					<h5 class="font-weight-lighter nanum ">사진파일을 드래그 하거나 사진을 업로드 해주세요!</h5>
+					<h6 class="font-weight-lighter nanum ">*업로드한 사진은 서버에 저장되지 않습니다.</h6>
+				</div>
 			</div>
 		</div>
 		<div class="file-upload-content">
@@ -75,6 +78,7 @@
 			<div>
 				<p class="result-messege nanum font-weight-bold text-center text-size-32px"></p>
 				<p id = "result-messege-sub" class="font-weight-bolder nanum"></p>	
+				<p id = "result-messege-end" class="font-weight-bolder nanum"></p>
 			</div>
 			<div id="label-container" style="display:none"></div>
 			<div class="container">
@@ -158,7 +162,7 @@
 		// More API functions here:
 		// https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 		// the link to your model provided by Teachable Machine export panel
-		const URL = "https://teachablemachine.withgoogle.com/models/WgsWNXCUw/";
+		const URL = "https://teachablemachine.withgoogle.com/models/2GpaqyyZD/";
 		let model, webcam, labelContainer, maxPredictions;
 		// Load the image model and setup the webcam
 		async function init() {
@@ -232,6 +236,7 @@
 			}
 			$('.result-messege').html(resultMesseage);
 			$("#result-messege-sub").html(resultMesseageSub);
+			$("#result-messege-end").html(resultE);
 			
 			for (let i = 0; i < maxPredictions; i++) {
 				const classPrediction =
