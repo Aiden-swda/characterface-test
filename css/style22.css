@@ -1,157 +1,185 @@
 body {
-  font-family: sans-serif;
-  background-color: #eeeeee;
+	font-family: sans-serif;
+	background-color: #eeeeee;
 }
-.navbar_distance{
-	padding: 2.1% 7.7%
+.navbar_distance {
+	padding: 2.1% 7.7%;
 }
 
 .file-upload {
-  background-color: #ffffff;
-  width: 660px;
-  margin: 0 auto;
-  height:50vw;
-  padding: 20px;
+	background-color: #ffffff;
+	width: 660px;
+	margin: 0 auto;
+	height: 50vw;
+	padding: 20px;
 }
 
 .file-upload-btn {
-  width: 100%;
-  margin: 0;
-  color: #fff;
-  background: #1FB264;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  border-bottom: 4px solid #15824B;
-  transition: all .2s ease;
-  outline: none;
-  text-transform: uppercase;
-  font-weight: 700;
+	width: 100%;
+	margin: 0;
+	color: #fff;
+	background: #1fb264;
+	border: none;
+	padding: 10px;
+	border-radius: 4px;
+	border-bottom: 4px solid #15824b;
+	transition: all 0.2s ease;
+	outline: none;
+	text-transform: uppercase;
+	font-weight: 700;
 }
 
 .file-upload-btn:hover {
-  background: #1AA059;
-  color: #ffffff;
-  transition: all .2s ease;
-  cursor: pointer;
+	background: #1aa059;
+	color: #ffffff;
+	transition: all 0.2s ease;
+	cursor: pointer;
 }
 
 .file-upload-btn:active {
-  border: 0;
-  transition: all .2s ease;
+	border: 0;
+	transition: all 0.2s ease;
 }
 
 .file-upload-content {
-  display: none;
-  text-align: center;
+	display: none;
+	text-align: center;
 }
 
 .file-upload-input {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  outline: none;
-  opacity: 0;
-  cursor: pointer;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	outline: none;
+	opacity: 0;
+	cursor: pointer;
 }
 
 .image-upload-wrap {
-  margin-top: 20px;
-  object-fit: contain;
-  border-radius: 10px;
-  background-color: #f8f6fb;
-  /* border: solid 4px #292d31; */
-  position: relative;
+	margin-top: 20px;
+	object-fit: contain;
+	border-radius: 10px;
+	background-color: #f8f6fb;
+	/* border: solid 4px #292d31; */
+	position: relative;
 }
 
 .image-dropping,
 .image-upload-wrap:hover {
-  background-color: #bfd5ec;
-  border: 4px dashed #ffffff;
+	background-color: #bfd5ec;
+	border: 4px dashed #ffffff;
 }
 
 .image-title-wrap {
-  padding: 0 15px 15px 15px;
-  color: #222;
+	padding: 0 15px 15px 15px;
+	color: #222;
 }
 
 .drag-text {
-  text-align: center;
+	text-align: center;
 }
 
 .drag-text h3 {
-  font-weight: 100;
-  text-transform: uppercase;
-  color: #15824B;
-  padding: 60px 0;
+	font-weight: 100;
+	text-transform: uppercase;
+	color: #15824b;
+	padding: 60px 0;
 }
 
 .file-upload-image {
-  max-height: 200px;
-  max-width: 200px;
-  margin: auto;
-  padding: 20px;
+	max-height: 200px;
+	max-width: 200px;
+	margin: auto;
+	padding: 20px;
 }
 
 .remove-image {
-  width: 200px;
-  margin: 0;
-  color: #fff;
-  background: #cd4535;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  border-bottom: 4px solid #b02818;
-  transition: all .2s ease;
-  outline: none;
-  font-weight: 700;
+	width: 200px;
+	margin: 0;
+	color: #fff;
+	background: #cd4535;
+	border: none;
+	padding: 10px;
+	border-radius: 4px;
+	border-bottom: 4px solid #b02818;
+	transition: all 0.2s ease;
+	outline: none;
+	font-weight: 700;
 }
 
 .remove-image:hover {
-  background: #c13b2a;
-  color: #ffffff;
-  transition: all .2s ease;
-  cursor: pointer;
+	background: #c13b2a;
+	color: #ffffff;
+	transition: all 0.2s ease;
+	cursor: pointer;
 }
 
 .remove-image:active {
-  border: 0;
-  transition: all .2s ease;	
+	border: 0;
+	transition: all 0.2s ease;
 }
 
-.nanum{
-    font-family: 'Nanum Gothic', sans-serif;
+.nanum {
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
-.text-size-32px{
-	font-size:1.6rem;
+.text-size-32px {
+	font-size: 2rem;
 }
 
-
-
-#back{
-position: absolute;
-z-index: 100;
-background-color: #000000;
-display:none;
-left:0;
-top:0;
-}
-#loadingBar{
-position:absolute;
-left:50%;
-top: 40%;
-display:none;
-z-index:200;
+.text-size-64px {
+	font-size: 4rem;
 }
 
+#back {
+	position: absolute;
+	z-index: 100;
+	background-color: #000000;
+	display: none;
+	left: 0;
+	top: 0;
+}
+#loadingBar {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	display: block;
+	opacity: 0.7;
+	background-color: #fff;
+	z-index: 99;
+	text-align: center;
+}
+#loading-image {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	bottom: 0;
 
+	text-align: center;
+	z-index:100;
+}
+#loading-text {
+	position: fixed;
+	top: 30%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	bottom: 0;
+	font-size:1.2rem;
+
+	text-align: center;
+	z-index:100;
+}
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
-  html {
-    font-size: 10px;
-  }
+	html {
+		font-size: 10px;
+	}
 }

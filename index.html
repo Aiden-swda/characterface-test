@@ -60,35 +60,43 @@
 <body>
 
 	<!-- Start your project here-->
-	<nav class="navbar navbar-dark indigo">
+	<nav class="navbar navbar-dark success-color">
 		<p class="navbar-text white-text nanum font-weight-bold text-size-32px">캐릭터상 테스트</p>
 	</nav>
+	
+	<div id="loadingBar" style="display:none;">
+		
+		<img id="loading-image" src="https://tistory4.daumcdn.net/tistory/3704925/skin/images/loadingbar.gif" alt="loading..."/>
+		<p id="loading-text" class="naum">
+			AI가 캐릭터상을 분석중입니다...
+		</p>
+	</div>
 
 	<div>
-		<h1 class="text-center pt-5 font-weight-bold">
+		<p class="text-center pt-5 font-weight-bold text-size-64px">
 			캐릭터상 테스트
-		</h1>
+		</p>
 		<h4 class="text-center pt-3  font-weight-bold">
 			내가 애니메이션에 나온다면 어떤 애니메이션일까?
 		</h4>
-		<h6 class="text-center pt-2  font-weight-light ml-5 mr-5">
+		<h6 class="text-center pt-4  font-weight-light ml-5 mr-5">
 			*한국콘텐츠진흥원에서 조사한 '국내 캐릭터 인지도 순위'를 참고하여 캐릭터를 선정하였습니다.
 		</h6>
 		<h6 class="text-center pt-2 pb-4 font-weight-light ml-5 mr-5">
-			*업로드한 사진은 서버에 저장되지 않습니다.
+			*업로드한 사진은 그 어떠한 곳에도 저장되지 않습니다.
 		</h6>
 	</div>
 
 	<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
-	<div class="file-upload container">
+	<div class="file-upload container p-5 ">
 		<div class="image-upload-wrap">
 			<input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
 			<div class="drag-text">
 				<img src="img/image_icon.png" class="m-5">
 				<div class="pb-5">
 					<h5 class="font-weight-lighter nanum ">사진파일을 드래그 하거나 사진을 업로드 해주세요!</h5>
-					<h6 class="font-weight-lighter nanum ">*업로드한 사진은 서버에 저장되지 않습니다.</h6>
+					<h6 class="font-weight-lighter nanum ">*업로드한 사진은 그 어떠한 곳에도 저장되지 않습니다.</h6>
 				</div>
 			</div>
 		</div>
@@ -96,19 +104,20 @@
 			<img class="file-upload-image" id="faceimg" src="#" alt="your image" />
 			<div>
 				<p class="result-messege nanum font-weight-bold text-center text-size-32px"></p>
-				<p id="result-messege-sub" class="font-weight-bolder nanum"></p>
 				<p id="result-messege-end" class="font-weight-bolder nanum"></p>
+				<!-- <p id="result-messege-sub" class="font-weight-bolder nanum"></p> -->
+				
 			</div>
 
 			<!-- Go to www.addthis.com/dashboard to customize your tools -->
-			<div class="addthis_inline_share_toolbox"></div>
+			<div class="addthis_inline_share_toolbox m-5"></div>
 
 			<div id="label-container" style="display:none"></div>
 			<div class="container">
 				<canvas class="mychart" id="myChart"></canvas>
 			</div>
 			<div class="image-title-wrap">
-				<button type="button" onclick="removeUpload()" class="btn btn-primary">다른사진 업로드하기
+				<button type="button" onclick="removeUpload()" class="btn btn-success m-5">다른사진 업로드하기
 				</button>
 			</div>
 		</div>
@@ -135,11 +144,11 @@
 					$('.image-title').html(input.files[0].name);
 				};
 				reader.readAsDataURL(input.files[0]);
-				FunLoadingBarStart();
+				$("#loadingBar").show();
 				init().then(() => {
 					console.log("hi")
 					predict();
-					FunLoadingBarEnd();
+				$("#loadingBar").hide();
 				});
 			} else {
 				removeUpload();
@@ -158,28 +167,6 @@
 			$('.image-upload-wrap').removeClass('image-dropping');
 		});
 
-		function FunLoadingBarEnd() {
-			$('#back, #loadingBar').hide();
-			$('#back, #loadingBar').remove();
-		}
-
-		function FunLoadingBarStart() {
-			var backHeight = $(document).height(); //뒷 배경의 상하 폭
-			var backWidth = window.document.body.clientWidth; //뒷 배경의 좌우 폭
-			var backGroundCover = "<div id='back'></div>"; //뒷 배경을 감쌀 커버
-			var loadingBarImage = ''; //가운데 띄워 줄 이미지
-			loadingBarImage += "<div id='loadingBar'>";
-			loadingBarImage += " <img src='img/loadingbar.gif'/>"; //로딩 바 이미지
-			loadingBarImage += "</div>";
-			$('body').append(backGroundCover).append(loadingBarImage);
-			$('#back').css({
-				'width': backWidth,
-				'height': backHeight,
-				'opacity': '0.3'
-			});
-			$('#back').show();
-			$('#loadingImg').show();
-		}
 	</script>
 	<script type="text/javascript">
 		// More API functions here:
@@ -224,41 +211,41 @@
 			switch (prediction[0].className) {
 				case "도라에몽":
 					resultMesseage = "도라에몽"
-					resultMesseageSub = "당신은 둥글둥글한 그림체가 매력적인 도라에몽에 어울리는 얼굴상을 가지셨군요!"
-					resultE = "당신이 캐릭터였다면 도라에몽에 등장했겠군요!"
+					//resultMesseageSub = "당신은 둥글둥글한 그림체가 매력적인 도라에몽에 어울리는 얼굴상을 가지셨군요!"
+					resultE = "당신이 캐릭터였다면 도라에몽에 등장했겠네요!"
 					break
 				case "짱구는 못말려":
 					resultMesseage = "짱구는 못말려"
-					resultMesseageSub = "멘트못정함"
+					//resultMesseageSub = "멘트못정함"
 					resultE = "당신이 캐릭터였다면 짱구는 못말려에 등장했겠군요!"
 					break;
 				case "카카오프렌즈":
 					resultMesseage = "카카오프렌즈"
-					resultMesseageSub = "멘트못정함"
+					//resultMesseageSub = "멘트못정함"
 					resultE = "당신이 캐릭터였다면 카카오프렌즈에 등장했겠군요!"
 					break;
 				case "뽀로로와 친구들":
 					resultMesseage = "뽀로로와 친구들"
-					resultMesseageSub = "멘트못정함"
+					//resultMesseageSub = "멘트못정함"
 					resultE = "당신이 캐릭터였다면 뽀로로와 친구들에 등장했겠군요!"
 					break;
 				case "라바":
 					resultMesseage = "라바"
-					resultMesseageSub = "당신은 다양한 표정이 매력적인 라바에 어울리는 얼굴상을 가지셨군요!"
+					//resultMesseageSub = "당신은 다양한 표정이 매력적인 라바에 어울리는 얼굴상을 가지셨군요!"
 					resultE = "당신이 캐릭터였다면 라바에 등장했겠군요!"
 					break;
 				case "아기 공룡 둘리":
 					resultMesseage = "아기 공룡 둘리"
-					resultMesseageSub = "멘트못정함"
+					//resultMesseageSub = "멘트못정함"
 					resultE = "당신이 캐릭터였다면 아기 공룡 둘리에 등장했겠군요!"
 					break;
 				default:
 					resultMesseage = "알수없음"
-					resultMesseageSub = "알수없음"
+					//resultMesseageSub = "알수없음"
 					resultE = "알수없음"
 			}
 			$('.result-messege').html(resultMesseage);
-			$("#result-messege-sub").html(resultMesseageSub);
+			//$("#result-messege-sub").html(resultMesseageSub);
 			$("#result-messege-end").html(resultE);
 			for (let i = 0; i < maxPredictions; i++) {
 				const classPrediction =
