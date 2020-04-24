@@ -103,7 +103,7 @@
 			<div>
 				<p class="result-messege nanum font-weight-bold text-center text-size-32px"></p>
 				<p id="result-messege-end" class="font-weight-bolder nanum"></p>
-				<!-- <p id="result-messege-sub" class="font-weight-bolder nanum"></p> -->
+				<p id="result-messege-sub" class="font-weight-bolder nanum"></p>
 
 			</div>
 
@@ -213,32 +213,32 @@
 			switch (prediction[0].className) {
 				case "도라에몽":
 					resultMesseage = "도라에몽"
-					//resultMesseageSub = "당신은 둥글둥글한 그림체가 매력적인 도라에몽에 어울리는 얼굴상을 가지셨군요!"
+					resultMesseageSub = "학습시킨 캐릭터: 노진구, 도라에몽, 이슬이, 퉁퉁이, 비실이, 퉁퉁이 엄마"
 					resultE = "당신이 캐릭터였다면 도라에몽에 등장했겠네요!"
 					break
 				case "짱구는 못말려":
 					resultMesseage = "짱구는 못말려"
-					//resultMesseageSub = "멘트못정함"
+					resultMesseageSub = "학습시킨 캐릭터: 짱구, 짱구엄마, 짱구아빠, 짱아, 철수, 훈이, 유리, 맹구"
 					resultE = "당신이 캐릭터였다면 짱구는 못말려에 등장했겠군요!"
 					break;
 				case "카카오프렌즈":
 					resultMesseage = "카카오프렌즈"
-					//resultMesseageSub = "멘트못정함"
+					resultMesseageSub = "학습시킨 캐릭터: 라이언, 무지, 어피치, Jay-G, 프로도, 네오, 튜브, 콘"
 					resultE = "당신이 캐릭터였다면 카카오프렌즈에 등장했겠군요!"
 					break;
 				case "뽀로로와 친구들":
 					resultMesseage = "뽀로로와 친구들"
-					//resultMesseageSub = "멘트못정함"
+					resultMesseageSub = "학습시킨 캐릭터: 뽀로로, 루피, 포비, 에디, 패티, 크롱, 해리"
 					resultE = "당신이 캐릭터였다면 뽀로로와 친구들에 등장했겠군요!"
 					break;
 				case "라바":
 					resultMesseage = "라바"
-					//resultMesseageSub = "당신은 다양한 표정이 매력적인 라바에 어울리는 얼굴상을 가지셨군요!"
+					resultMesseageSub = "학습시킨 캐릭터: 레드, 옐로우"
 					resultE = "당신이 캐릭터였다면 라바에 등장했겠군요!"
 					break;
 				case "아기 공룡 둘리":
 					resultMesseage = "아기 공룡 둘리"
-					//resultMesseageSub = "멘트못정함"
+					resultMesseageSub = "학습시킨 캐릭터: 둘리, 도우너, 또치, 희동이, 마이콜, 고길동"
 					resultE = "당신이 캐릭터였다면 아기 공룡 둘리에 등장했겠군요!"
 					break;
 				default:
@@ -247,7 +247,7 @@
 					resultE = "알수없음"
 			}
 			$('.result-messege').html(resultMesseage);
-			//$("#result-messege-sub").html(resultMesseageSub);
+			$("#result-messege-sub").html(resultMesseageSub);
 			$("#result-messege-end").html(resultE);
 			for (let i = 0; i < maxPredictions; i++) {
 				const classPrediction =
