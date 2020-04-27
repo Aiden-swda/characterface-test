@@ -64,7 +64,7 @@
 	<div id="loadingBar" style="display:none;">
 
 		<img id="loading-image" src="https://tistory4.daumcdn.net/tistory/3704925/skin/images/loadingbar.gif" alt="loading..." />
-		<p id="loading-text" class="naum">
+		<p id="loading-text" class="naum font-weight-bold">
 			AI가 캐릭터상을 분석중입니다...
 		</p>
 	</div>
@@ -79,6 +79,12 @@
 		</h4>
 		<h6 class="text-center pt-4  font-weight-light ml-5 mr-5">
 			*한국콘텐츠진흥원에서 조사한 '국내 캐릭터 인지도 순위'를 참고하여 캐릭터를 선정하였습니다.
+		</h6>
+		<h6 class="text-center font-weight-light ml-5 mr-5">
+			*약 1000개의 케릭터 데이터들을 50번 반복학습하여 머신러닝 시켰습니다.
+		</h6>
+		<h6 class="text-center font-weight-light ml-5 mr-5">
+			*아직은 데이터셋이 부족하여 인기 캐릭터 6종만을 선정하여 학습시켰습니다.
 		</h6>
 		<h6 class="text-center pt-2 pb-4 font-weight-light ml-5 mr-5">
 			*업로드한 사진은 그 어떠한 곳에도 저장되지 않습니다.
@@ -102,30 +108,29 @@
 			<img class="file-upload-image" id="faceimg" src="#" alt="your image" />
 			<div>
 				<p class="result-messege nanum font-weight-bold text-center text-size-32px"></p>
-				<p id="result-messege-end" class="font-weight-bolder nanum"></p>
-				<p id="result-messege-sub" class="font-weight-bolder nanum"></p>
+				<p id="result-messege-end" class="font-weight-bold nanum"></p>
+				<p id="result-messege-sub" class="font-weight-bold nanum"></p>
+				<h6 class="text-center font-weight-light ml-5 mr-5">
+					*사진의 각도에 따라 분석값이 다를 수 있습니다.
+				</h6>
 
 			</div>
 
 			<!-- Go to www.addthis.com/dashboard to customize your tools -->
 			<div class="addthis_inline_share_toolbox m-5"></div>
-			<ins class="kakao_ad_area" style="display:none;" 
- data-ad-unit    = "DAN-1ibc1ikyjrq06" 
- data-ad-width   = "320" 
- data-ad-height  = "50"></ins>
-			
-<ins class="kakao_ad_area" style="display:none;" 
- data-ad-unit    = "DAN-t89oxzv7stie" 
- data-ad-width   = "300" 
- data-ad-height  = "250"></ins> 
+
+			<ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-t89oxzv7stie" data-ad-width="300" data-ad-height="250"></ins>
+
 			<div id="label-container" style="display:none"></div>
-			<div class="container">
-				<canvas class="mychart" id="myChart"></canvas>
-			</div>
+
 			<div class="image-title-wrap">
 				<button type="button" onclick="removeUpload()" class="btn btn-success m-5">다른사진 업로드하기
 				</button>
 			</div>
+			<div class="container pb-5">
+				<canvas class="mychart" id="myChart"></canvas>
+			</div>
+			<ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-1ibc1ikyjrq06" data-ad-width="320" data-ad-height="50"></ins>
 		</div>
 
 	</div>
