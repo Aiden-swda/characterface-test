@@ -133,6 +133,10 @@ body {
 	font-size: 4rem;
 }
 
+.gird_left{
+	float:left;
+}
+
 #back {
 	position: absolute;
 	z-index: 100;
